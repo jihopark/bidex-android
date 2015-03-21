@@ -12,22 +12,15 @@
     <EditText
         android:inputType="textPassword"
         android:hint="@string/login_pw"
-        android:id="@+id/LoginPW"
+        android:id="@+id/JoinPW"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <Button
-        android:gravity="center"
-        android:layout_gravity="center"
-        style="@style/MyButton"
-        android:id="@+id/login_button"
-        android:text="@string/login_button"
-        android:layout_width="100dp"
+    <EditText
+        android:inputType="textPassword"
+        android:hint="@string/join_pw_check"
+        android:id="@+id/JoinPWCheck"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
-    <TextView
-        android:layout_gravity="center"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Or"/>
     <Button
         android:gravity="center"
         android:layout_gravity="center"

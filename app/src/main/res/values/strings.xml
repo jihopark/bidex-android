@@ -4,6 +4,7 @@
     <string name="app_name">BidEx</string>
     <string name="title_payment">Payment</string>
     <string name="title_login">Login</string>
+    <string name="title_sign">Sign up</string>
 
     <string name="hello_world">Hello world!</string>
     <string name="action_login">Login</string>
@@ -27,6 +28,7 @@
     <string name="bid_confirm_no">No</string>
     <string name="login_id">ID</string>
     <string name="login_pw">PW</string>
+    <string name="join_pw_check">PW Check</string>
     <string name="login_button">Login</string>
     <string name="signup_button">Sign Up</string>
 </resources>

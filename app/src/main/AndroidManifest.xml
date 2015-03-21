@@ -34,6 +34,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.bidex.app.MainActivity" />
         </activity>
+        <activity android:name="com.bidex.app.SignActivity"
+            android:noHistory="true"
+            android:label="@string/title_sign">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.bidex.app.LoginActivity" />
+        </activity>
 
         <uses-permission android:name="android.permission.INTERNET"/>
     </application>
