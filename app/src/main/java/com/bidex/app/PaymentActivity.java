@@ -19,7 +19,6 @@ public class PaymentActivity extends ActionBarActivity {
 
     private CardEditor cardEditor;
     private Simplify simplify;
-    private static final String MY_PUBLIC_API_KEY ="sbpb_N2ZkOGIwZWYtYTg3My00OTE1LWI3ZjgtMzZhMzZhZTAyYTY5";
 
     private Simplify.CreateTokenListener listener = new Simplify.CreateTokenListener()
     {
@@ -27,7 +26,7 @@ public class PaymentActivity extends ActionBarActivity {
         public void onSuccess(Token token)
         {
             Log.i("PaymentActivity/onSuccess", "Created Token: " + token.getId());
-            cardEditor.showSuccessOverlay("Success");
+            processTokenToBackEnd(token.getId());
         }
 
         @Override
@@ -38,13 +37,19 @@ public class PaymentActivity extends ActionBarActivity {
         }
     };
 
+    private void processTokenToBackEnd(String token){
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_payment);
 
-        simplify = new Simplify(MY_PUBLIC_API_KEY);
+        simplify = new Simplify(getResources().getString(R.string.public_key));
         cardEditor = (CardEditor) findViewById(R.id.card_editor);
+        cardEditor.setAmount(1000);
+
         cardEditor.setOnChargeClickListener(new View.OnClickListener()
         {
             @Override

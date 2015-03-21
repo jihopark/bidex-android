@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <string name="public_key">sbpb_ZjhmNmYxNGMtOThlNy00OWRmLTljMzYtZWRjMGJmZGE4Njdl</string>
+    <string name="private_key">KychZDSxOO7RhkSXSirAbOw4O/xNS2ATM+aeKwThmcR5YFFQL0ODSXAOkNtXTToq</string>
+
     <string name="app_name">BidEx</string>
     <string name="title_payment">Payment</string>
     <string name="title_login">Login</string>
