@@ -22,4 +22,7 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:19.+'
     compile project(':simplify:library')
+    compile 'com.parse.bolts:bolts-android:1.+'
+    compile files('libs/Parse-1.8.4.jar')
+    compile files('/Users/parkjiho/AndroidStudioProjects/BidEx/libs/Parse-1.8.4.jar')
 }

@@ -118,6 +118,7 @@
                 <TextView
                     style="@style/BidDetail"
                     android:layout_centerHorizontal="true"
+                    android:id="@+id/total_bidder_text"
                     android:text="@string/total_bidder_text"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />

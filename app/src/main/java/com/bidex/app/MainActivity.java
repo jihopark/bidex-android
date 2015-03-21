@@ -6,12 +6,20 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.parse.FindCallback;
+import com.parse.GetCallback;
+import com.parse.Parse;
+import com.parse.ParseException;
+import com.parse.ParseObject;
+import com.parse.ParseQuery;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -20,9 +28,12 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
+    private ParseObject deal;
+
     private RelativeLayout bidButton;
     private ListView _commentListView;
     private CommentListAdapter commentListAdapter;
+    private TextView dealTitle,totalBidder,topBidNumber;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,8 +44,67 @@ public class MainActivity extends ActionBarActivity {
         _commentListView.setAdapter(commentListAdapter);
         bidButton = (RelativeLayout) findViewById(R.id.bid_button);
 
+        dealTitle = (TextView) findViewById(R.id.deal_title);
+        totalBidder = (TextView) findViewById(R.id.total_bidder_number);
+        topBidNumber = (TextView) findViewById(R.id.top_bid_number);
         setBidButton();
-        setTimer(null);
+       // setTimer(null);
+
+        setDB();
+    }
+
+    private void setDB(){
+
+        Log.d("MainActivity/setDB","Set DB");
+        Parse.enableLocalDatastore(this);
+        Parse.initialize(this, "8y2Ma1EO394oPIoyEqVIBXFhtBmGjMQYjXfDm9od", "ftK0rwjfMgai0KxoXBvsbr9GYgr952Kq8TndWi0o");
+
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Deal");
+        query.getInBackground("z17eDDD5bc", new GetCallback<ParseObject>() {
+            public void done(ParseObject object, ParseException e) {
+                if (e == null) {
+                    Log.d("MainActivity/done","parse "+ object.getString("title"));
+                    deal = object;
+                    setTimer(deal.getDate("dealEndTime"));
+                    dealTitle.setText(object.getString("title"));
+                    setUpBid();
+                } else {
+                    // something went wrong
+                }
+            }
+        });
+    }
+
+    private void setUpBid(){
+        ParseQuery<ParseObject> query2 = ParseQuery.getQuery("Bid");
+
+        query2.whereEqualTo("bid_for", deal);
+        query2.addDescendingOrder("amount");
+        query2.findInBackground(new FindCallback<ParseObject>() {
+            public void done(List<ParseObject> bidList, ParseException e) {
+                if (e == null) {
+                    Log.d("MainActivity/done", "Total Bidder " + bidList.size());
+                    totalBidder.setText(""+bidList.size());
+                    topBidNumber.setText("$" + bidList.get(0).getInt("amount"));
+
+                } else {
+                    Log.d("score", "Error: " + e.getMessage());
+                }
+            }
+        });
+
+    }
+
+    private void setUpInitialBids(ParseObject deal){
+        ParseObject bid = new ParseObject("Bid");
+        bid.put("amount",100);
+        bid.put("bidTime", new Date(Calendar.getInstance().getTimeInMillis()));
+        bid.put("bid_for",deal);
+
+        ParseObject bid2 = new ParseObject("Bid");
+        bid2.put("amount",150);
+        bid2.put("bidTime", new Date(Calendar.getInstance().getTimeInMillis()));
+        bid2.put("bid_for",deal);
     }
 
     private void setBidButton(){

@@ -74,6 +74,9 @@
     <orderEntry type="library" exported="" name="gson-2.2.4" level="project" />
     <orderEntry type="library" exported="" name="appcompat-v7-19.1.0" level="project" />
     <orderEntry type="library" exported="" name="support-v4-19.1.0" level="project" />
+    <orderEntry type="library" exported="" name="bolts-android-1.1.4" level="project" />
+    <orderEntry type="library" exported="" name="Parse-1.8.4" level="project" />
+    <orderEntry type="library" exported="" name="1_Parse-1.8.4" level="project" />
     <orderEntry type="module" module-name="library" exported="" />
   </component>
 </module>
