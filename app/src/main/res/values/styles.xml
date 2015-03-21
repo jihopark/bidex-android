@@ -5,8 +5,49 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="DefaultTextColor">
+        <item name="android:textColor">@color/text_color</item>
+    </style>
+
     <style name="Splash">
         <item name="android:windowNoTitle">true</item>
+    </style>
+
+    <style name="DealTitle" parent="@style/DefaultTextColor">
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="DealDetail" parent="@style/DefaultTextColor">
+        <item name="android:textSize">20sp</item>
+    </style>
+
+    <style name="TopBidNumber">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/main_color</item>
+        <item name="android:textSize">35sp</item>
+    </style>
+
+    <style name="TopBidDetail" parent="@style/DefaultTextColor">
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_gravity">center</item>
+    </style>
+
+    <style name="BidNumber">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="BidDetail" parent="@style/DefaultTextColor">
+        <item name="android:layout_gravity">center</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+
+    <style name="BidButton">
+        <item name="android:textColor">#ffffffff</item>
+        <item name="android:textSize">30sp</item>
     </style>
 
 </resources>
