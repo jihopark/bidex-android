@@ -17,4 +17,8 @@
     <string name="top_bidder_button">TOP BIDDER</string>
     <string name="top_bidder_id">BIDDER123</string>
     <string name="top_bidder_detail">TOP BIDDER</string>
+    <string name="bid_confirm_title">Hurry, someone else is coming</string>
+    <string name="bid_confirm_message">Will you go for the bid?</string>
+    <string name="bid_confirm_yes">Yes</string>
+    <string name="bid_confirm_no">No</string>
 </resources>

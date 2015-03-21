@@ -1,9 +1,13 @@
 package com.bidex.app;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -13,6 +17,7 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
+    private RelativeLayout bidButton;
     private ListView _commentListView;
     private CommentListAdapter commentListAdapter;
     @Override
@@ -23,8 +28,31 @@ public class MainActivity extends ActionBarActivity {
         _commentListView = (ListView) findViewById(R.id.comments_list);
         commentListAdapter = new CommentListAdapter(MainActivity.this, getSampleComments());
         _commentListView.setAdapter(commentListAdapter);
+        bidButton = (RelativeLayout) findViewById(R.id.bid_button);
 
+        setBidButton();
         setTimer(null);
+    }
+
+    private void setBidButton(){
+        final DialogInterface.OnClickListener positiveListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+            }
+        };
+        
+        bidButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle(R.string.bid_confirm_title)
+                        .setMessage(R.string.bid_confirm_message)
+                        .setPositiveButton(R.string.bid_confirm_yes, positiveListener)
+                        .setNegativeButton(R.string.bid_confirm_no, null);
+                builder.create().show();
+            }
+        });
     }
 
     private void setTimer(Date date){
