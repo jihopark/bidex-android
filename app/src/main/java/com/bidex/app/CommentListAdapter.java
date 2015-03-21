@@ -40,6 +40,11 @@ public class CommentListAdapter extends BaseAdapter {
             view = (CommentView) convertView;
             ((CommentView)convertView).setComment(getItem(position));
         }
+        if (position % 2 == 0){
+            view.setBackgroundColor(_context.getResources().getColor(R.color.col1));
+        }
+        else
+            view.setBackgroundColor(_context.getResources().getColor(R.color.col2));
         return view;
     }
 }

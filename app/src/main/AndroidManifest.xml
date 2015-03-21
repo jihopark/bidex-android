@@ -19,6 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name="com.bidex.app.MainActivity"
+            android:windowSoftInputMode="stateHidden|adjustResize"
             android:label="@string/app_name"/>
         <activity android:name="com.bidex.app.PaymentActivity"
             android:noHistory="true"

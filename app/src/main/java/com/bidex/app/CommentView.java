@@ -31,7 +31,7 @@ public class CommentView extends LinearLayout {
 
         userId.setText("@"+_comment.getUserId());
         if (_comment.getUserBid() > 0)
-            userBid.setText("$"+_comment.getUserBid());
+            userBid.setText("BID $"+_comment.getUserBid());
         else
             userBid.setText("");
         commentDetail.setText(_comment.getDetail());

@@ -1,141 +1,172 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bidex.app.MainActivity">
-    <ImageView
-        android:background="#ffd4cbaf"
+    tools:context="com.bidex.app.MainActivity"
+    android:fillViewport="true"
+    >
+    <LinearLayout android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:id="@+id/bid_image"/>
-    <TextView
-        style="@style/DealTitle"
-        android:id="@+id/deal_title"
-        android:text="@string/deal_title"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp" />
-    <!--
-    <TextView
-        style="@style/DealDetail"
-        android:id="@+id/deal_description"
-        android:text="@string/deal_description"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-        -->
-    <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="70dp">
+        android:layout_height="match_parent"
+        >
+        <ImageView
+            android:src="@drawable/dummy"
+            android:background="#ffd4cbaf"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:id="@+id/bid_image"/>
+        <TextView
+            style="@style/DealTitle"
+            android:id="@+id/deal_title"
+            android:text="@string/deal_title"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp" />
+        <!--
+        <TextView
+            style="@style/DealDetail"
+            android:id="@+id/deal_description"
+            android:text="@string/deal_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+            -->
         <LinearLayout
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                style="@style/TopBidNumber"
-                android:id="@+id/top_bid_number"
-                android:text="@string/top_bid_number"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <LinearLayout
+                android:layout_weight="1"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                style="@style/TopBidDetail"
-                android:text="@string/top_bid_text"
+                android:layout_height="wrap_content">
+                <TextView
+                    style="@style/TopBidNumber"
+                    android:id="@+id/top_bid_number"
+                    android:text="@string/top_bid_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    style="@style/TopBidDetail"
+                    android:text="@string/top_bid_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <RelativeLayout
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/my_button"
+                android:layout_weight="1"
+                android:id="@+id/bid_button"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-        <RelativeLayout
-            android:background="@drawable/my_button"
-            android:layout_weight="1"
-            android:id="@+id/bid_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
-            <TextView
-                style="@style/BidButton"
-                android:layout_centerHorizontal="true"
-                android:layout_alignParentTop="true"
-                android:id="@+id/bid_button_name"
-                android:text="@string/bid_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                style="@style/BidButton"
-                android:layout_centerHorizontal="true"
-                android:layout_below="@+id/bid_button_name"
-                android:id="@+id/bid_button_amount"
-                android:text="@string/bid_amount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </RelativeLayout>
+                android:layout_height="wrap_content">
+                <TextView
+                    style="@style/BidButton"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignParentTop="true"
+                    android:id="@+id/bid_button_name"
+                    android:text="@string/bid_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    style="@style/BidButton"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/bid_button_name"
+                    android:id="@+id/bid_button_amount"
+                    android:text="@string/bid_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </RelativeLayout>
 
-    </LinearLayout>
-    <LinearLayout
-        android:layout_gravity="center_vertical"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="70dp">
-        <LinearLayout
-            android:layout_weight="1"
-            android:id="@+id/time_left_layout"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-            <TextView
-                style="@style/BidNumber"
-                android:id="@+id/time_left_number"
-                android:textColor="#fff1212c"
-                android:text="@string/time_left_number"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                style="@style/BidDetail"
-                android:layout_centerHorizontal="true"
-                android:text="@string/time_left_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
         </LinearLayout>
         <LinearLayout
             android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-            <TextView
-                style="@style/BidNumber"
-                android:id="@+id/total_bidder_number"
-                android:text="@string/total_bidder_number"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:id="@+id/time_left_layout"
+                android:orientation="vertical"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                style="@style/BidDetail"
-                android:layout_centerHorizontal="true"
-                android:text="@string/total_bidder_text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_weight="3"
-            style="@style/BidNumber"
-            android:orientation="vertical"
-            android:id="@+id/top_bidder_button"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
-            <TextView
-                style="@style/BidNumber"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/top_bidder_id"
-                android:text="@string/top_bidder_id"/>
-            <TextView
-                style="@style/BidDetail"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/top_bidder_detail"/>
+                android:layout_height="match_parent">
+                <TextView
+                    style="@style/BidNumber"
+                    android:id="@+id/time_left_number"
+                    android:textColor="#fff1212c"
+                    android:text="@string/time_left_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    style="@style/BidDetail"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/time_left_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </LinearLayout>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    style="@style/BidNumber"
+                    android:id="@+id/total_bidder_number"
+                    android:text="@string/total_bidder_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    style="@style/BidDetail"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/total_bidder_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+            <LinearLayout
+                android:gravity="center_vertical"
+                android:layout_weight="1"
+                style="@style/BidNumber"
+                android:orientation="vertical"
+                android:id="@+id/top_bidder_button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <TextView
+                    style="@style/BidNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/top_bidder_id"
+                    android:text="@string/top_bidder_id"/>
+                <TextView
+                    style="@style/BidDetail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/top_bidder_detail"/>
+            </LinearLayout>
+        </LinearLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+            <EditText
+                style="@style/MyEditText"
+                android:hint="@string/add_comment_field"
+                android:id="@+id/add_comment_field"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+            <Button
+                android:background="@color/col2"
+                android:textSize="10sp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                style="@style/MyButton"
+                android:text="@string/add_comment_text"
+                android:id="@+id/add_comment_button"
+                android:layout_width="20dp"
+                android:layout_height="20dp" />
+        </RelativeLayout>
+        <ListView
+            android:id="@+id/comments_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
     </LinearLayout>
-    <ListView
-        android:background="#ffd4cbaf"
-        android:id="@+id/comments_list"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</LinearLayout>
+</ScrollView>

@@ -3,19 +3,25 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="50dp"
+    android:paddingTop="10dp"
+    android:paddingLeft="15dp"
     >
     <TextView
+        style="@style/UserID"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:id="@+id/user_id"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <TextView
+        style="@style/CommentBidNumber"
         android:layout_below="@+id/user_id"
         android:id="@+id/user_bid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
     <TextView
+        android:gravity="left"
+        android:layout_marginRight="15dp"
         android:layout_alignParentRight="true"
         android:id="@+id/comment_detail"
         android:layout_width="wrap_content"

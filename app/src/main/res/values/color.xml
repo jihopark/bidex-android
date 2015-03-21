@@ -3,4 +3,6 @@
 
     <color name="main_color">#ff3bf779</color>
     <color name="text_color">#ff323232</color>
+    <color name="col1">#ffededed</color>
+    <color name="col2">#ffd6d6d6</color>
 </resources>

@@ -26,45 +26,58 @@
         <item name="android:textColor">#ffffffff</item>
         <item name="android:background">@drawable/my_button</item>
         <item name="android:layout_margin">5dp</item>
-        <item name="android:padding">5dp</item>
+    </style>
+
+    <style name="MyEditText">
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:background">@drawable/my_edittext</item>
+        <item name="android:layout_height">50dp</item>
     </style>
 
 
     <style name="DealTitle" parent="@style/DefaultTextColor">
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 
     <style name="DealDetail" parent="@style/DefaultTextColor">
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">15sp</item>
     </style>
 
     <style name="TopBidNumber">
         <item name="android:layout_gravity">center</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/main_color</item>
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">25sp</item>
     </style>
 
     <style name="TopBidDetail" parent="@style/DefaultTextColor">
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:layout_gravity">center</item>
     </style>
 
     <style name="BidNumber">
         <item name="android:layout_gravity">center</item>
-        <item name="android:textSize">20sp</item>
+        <item name="android:textSize">15sp</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>
 
     <style name="BidDetail" parent="@style/DefaultTextColor">
         <item name="android:layout_gravity">center</item>
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">12sp</item>
         <item name="android:layout_centerHorizontal">true</item>
     </style>
 
     <style name="BidButton">
         <item name="android:textColor">#ffffffff</item>
-        <item name="android:textSize">25sp</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="UserID">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="CommentBidNumber">
+        <item name="android:textSize">10sp</item>
     </style>
 
 </resources>
