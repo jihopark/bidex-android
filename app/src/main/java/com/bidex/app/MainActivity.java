@@ -2,9 +2,12 @@ package com.bidex.app;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
@@ -41,7 +44,7 @@ public class MainActivity extends ActionBarActivity {
 
             }
         };
-        
+
         bidButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,7 +90,7 @@ public class MainActivity extends ActionBarActivity {
         return list;
     }
 
-    /*@Override
+   @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
@@ -102,8 +105,10 @@ public class MainActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(MainActivity.this, PaymentActivity.class);
+            startActivity(intent);
             return true;
         }
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 }

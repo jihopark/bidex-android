@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:simplify="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <com.simplify.android.sdk.view.CardEditor
+        android:id="@+id/card_editor"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        simplify:themeColor="#fffc6621"
+        simplify:closeable="false"
+        simplify:amount="5.00"/>
+</RelativeLayout>

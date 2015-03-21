@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger>
+
+    <dataSet config="main" >
+        <source path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res" >
+            <file
+                name="simplify_cardtype_amex"
+                path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res/drawable/simplify_cardtype_amex.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="simplify_cardtype_diners"
+                path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res/drawable/simplify_cardtype_diners.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="simplify_cardtype_discover"
+                path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res/drawable/simplify_cardtype_discover.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="simplify_cardtype_jcb"
+                path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res/drawable/simplify_cardtype_jcb.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="simplify_cardtype_mastercard"
+                path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res/drawable/simplify_cardtype_mastercard.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="simplify_cardtype_unknown"
+                path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res/drawable/simplify_cardtype_unknown.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="simplify_cardtype_visa"
+                path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res/drawable/simplify_cardtype_visa.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="simplify_logo"
+                path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res/drawable/simplify_logo.png"
+                qualifiers=""
+                type="drawable" />
+            <file
+                name="simplify_cardeditor"
+                path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res/layout/simplify_cardeditor.xml"
+                qualifiers=""
+                type="layout" />
+            <file
+                path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res/values/attrs.xml"
+                qualifiers="" >
+                <declare-styleable name="CardEditor" >
+
+                    <!-- Toggles the visibility of the close button -->
+                    <attr
+                        name="closeable"
+                        format="boolean" />
+                    <!-- The amount of the payment in which the card is being charged -->
+                    <attr
+                        name="amount"
+                        format="float" />
+                    <!-- Defines the theme color for the view. (ie. charge button background/label colors) -->
+                    <attr
+                        name="themeColor"
+                        format="color" />
+                </declare-styleable>
+            </file>
+            <file
+                path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res/values/colors.xml"
+                qualifiers="" >
+                <color name="simplify_grey_dark" >#ff333333
+                </color>
+                <color name="simplify_grey" >#ff666666
+                </color>
+                <color name="simplify_red_light" >#fff7e6e6
+                </color>
+                <color name="simplify_green_light" >#ffebf7e6
+                </color>
+                <color name="simplify_grey_light" >#ffdddddd
+                </color>
+                <color name="simplify_orange" >#fffc6621
+                </color>
+            </file>
+            <file
+                path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res/values/dimens.xml"
+                qualifiers="" >
+                <dimen name="simplify_zero" >0dp
+                </dimen>
+                <dimen name="simplify_text_xlarge" >30sp
+                </dimen>
+                <dimen name="simplify_height_row" >50dp
+                </dimen>
+                <dimen name="simplify_text_small" >15sp
+                </dimen>
+                <dimen name="simplify_spacing_row" >1dp
+                </dimen>
+                <dimen name="simplify_padding" >15dp
+                </dimen>
+                <dimen name="simplify_padding_double" >30dp
+                </dimen>
+                <dimen name="simplify_text_large" >22sp
+                </dimen>
+                <dimen name="simplify_padding_half" >8dp
+                </dimen>
+            </file>
+            <file
+                path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/main/res/values/strings.xml"
+                qualifiers="" >
+                <string name="simplify_cvc_hint" >000
+                </string>
+                <string name="simplify_failure" >Failure.
+                </string>
+                <string name="simplify_success_message" >Your payment has been processed.
+                </string>
+                <string name="simplify_close" >Close
+                </string>
+                <string name="simplify_charge_card" >Charge Card
+                </string>
+                <string name="simplify_try_again" >Try Again
+                </string>
+                <string name="simplify_charge_a_card" >Charge a Card
+                </string>
+                <string name="simplify_card_number_hint" >0000 0000 0000 0000
+                </string>
+                <string name="simplify_success" >Success!
+                </string>
+                <string name="simplify_exp_hint" >MM/YY
+                </string>
+                <string name="simplify_cvc" >CVC
+                </string>
+                <string name="simplify_charge" >Charge %1$s
+                </string>
+                <string name="simplify_exp" >EXP
+                </string>
+                <string name="simplify_error_message" >There was an error processing your payment.
+                </string>
+            </file>
+        </source>
+        <source path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/build/res/rs/release" />
+        <source path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/build/res/generated/release" />
+    </dataSet>
+    <dataSet config="release" >
+        <source path="/Users/parkjiho/AndroidStudioProjects/BidEx/simplify/library/src/release/res" />
+    </dataSet>
+
+</merger>
