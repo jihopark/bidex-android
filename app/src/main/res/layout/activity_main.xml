@@ -45,7 +45,7 @@
                 android:layout_height="wrap_content" />
         </LinearLayout>
         <RelativeLayout
-            android:background="@color/main_color"
+            android:background="@drawable/my_button"
             android:layout_weight="1"
             android:id="@+id/bid_button"
             android:layout_width="wrap_content"

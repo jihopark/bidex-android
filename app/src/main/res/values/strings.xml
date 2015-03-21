@@ -2,7 +2,11 @@
 <resources>
 
     <string name="app_name">BidEx</string>
+    <string name="title_payment">Payment</string>
+    <string name="title_login">Login</string>
+
     <string name="hello_world">Hello world!</string>
+    <string name="action_login">Login</string>
     <string name="action_settings">Settings</string>
     <string name="deal_title">Sample Title That Turns out To be Really Long?</string>
     <string name="deal_description">Sample detail</string>
@@ -21,4 +25,8 @@
     <string name="bid_confirm_message">Will you go for the bid?</string>
     <string name="bid_confirm_yes">Yes</string>
     <string name="bid_confirm_no">No</string>
+    <string name="login_id">ID</string>
+    <string name="login_pw">PW</string>
+    <string name="login_button">Login</string>
+    <string name="signup_button">Sign Up</string>
 </resources>
