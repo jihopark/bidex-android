@@ -1,14 +1,17 @@
 package com.bidex.app;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
-
+import java.util.Date;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -22,6 +25,29 @@ public class MainActivity extends ActionBarActivity {
         _commentListView = (ListView) findViewById(R.id.comments_list);
         commentListAdapter = new CommentListAdapter(MainActivity.this, getSampleComments());
         _commentListView.setAdapter(commentListAdapter);
+
+        setTimer(null);
+    }
+
+    private void setTimer(Date date){
+        if (date==null){
+            date = new Date(Calendar.getInstance().getTimeInMillis() + 1000*60*60);
+        }
+        final Date fDate = date;
+        final TextView timeLeft = (TextView) findViewById(R.id.time_left_number);
+        new CountDownTimer(30000, 1000) {
+            public void onTick(long millisUntilFinished) {
+
+                long timeLeftDate = fDate.getTime() - Calendar.getInstance().getTimeInMillis();
+
+                timeLeft.setText((timeLeftDate / (60 * 60 * 1000) % 24) + ":" + (timeLeftDate/(60 * 1000) % 60) + ":" + (timeLeftDate/1000%60));
+            }
+
+            public void onFinish() {
+                timeLeft.setText("ENDED");
+            }
+        }
+        .start();
     }
 
     private List<Comment> getSampleComments(){

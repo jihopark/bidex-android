@@ -83,6 +83,7 @@
             <TextView
                 style="@style/BidNumber"
                 android:id="@+id/time_left_number"
+                android:textColor="#fff1212c"
                 android:text="@string/time_left_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
