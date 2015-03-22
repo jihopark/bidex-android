@@ -14,14 +14,14 @@
     <string name="action_settings">Settings</string>
     <string name="deal_title">Sample Title That Turns out To be Really Long?</string>
     <string name="deal_description">Sample detail</string>
-    <string name="top_bid_number">$2,300</string>
+    <string name="top_bid_number">$-</string>
     <string name="top_bid_text">TOP BID</string>
     <string name="bid_button">BID</string>
-    <string name="bid_amount">+$10</string>
-    <string name="time_left_number">0:59</string>
+    <string name="bid_amount">+$100</string>
+    <string name="time_left_number">0:00</string>
     <string name="time_left_text">TIME LEFT</string>
-    <string name="total_bidder_number">122</string>
-    <string name="total_bidder_text">BIDDERS</string>
+    <string name="total_bidder_number">0</string>
+    <string name="total_bidder_text">TOTAL BIDS</string>
     <string name="top_bidder_button">TOP BIDDER</string>
     <string name="top_bidder_id">BIDDER123</string>
     <string name="top_bidder_detail">TOP BIDDER</string>
@@ -36,4 +36,7 @@
     <string name="signup_button">Sign Up</string>
     <string name="add_comment_field">Add comment</string>
     <string name="add_comment_text">+</string>
+    <string name="login_please_title">And you are..?</string>
+    <string name="login_please_message">You need to login to bid!</string>
+
 </resources>

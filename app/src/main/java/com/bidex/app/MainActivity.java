@@ -20,6 +20,7 @@ import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
+import com.parse.SaveCallback;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -28,12 +29,16 @@ import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
 
+    public static ParseObject currentUser = null;
+
+    private static boolean parseIsNotInitialized = true;
     private ParseObject deal;
+    private int currentBid;
 
     private RelativeLayout bidButton;
     private ListView _commentListView;
     private CommentListAdapter commentListAdapter;
-    private TextView dealTitle,totalBidder,topBidNumber;
+    private TextView dealTitle,totalBidder,topBidNumber, topBidUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,18 +52,19 @@ public class MainActivity extends ActionBarActivity {
         dealTitle = (TextView) findViewById(R.id.deal_title);
         totalBidder = (TextView) findViewById(R.id.total_bidder_number);
         topBidNumber = (TextView) findViewById(R.id.top_bid_number);
+        topBidUser = (TextView) findViewById(R.id.top_bidder_id);
         setBidButton();
        // setTimer(null);
-
         setDB();
     }
 
     private void setDB(){
-
         Log.d("MainActivity/setDB","Set DB");
-        Parse.enableLocalDatastore(this);
-        Parse.initialize(this, "8y2Ma1EO394oPIoyEqVIBXFhtBmGjMQYjXfDm9od", "ftK0rwjfMgai0KxoXBvsbr9GYgr952Kq8TndWi0o");
-
+        if (parseIsNotInitialized) {
+            Parse.enableLocalDatastore(this);
+            Parse.initialize(this, "8y2Ma1EO394oPIoyEqVIBXFhtBmGjMQYjXfDm9od", "ftK0rwjfMgai0KxoXBvsbr9GYgr952Kq8TndWi0o");
+            parseIsNotInitialized = false;
+        }
         ParseQuery<ParseObject> query = ParseQuery.getQuery("Deal");
         query.getInBackground("z17eDDD5bc", new GetCallback<ParseObject>() {
             public void done(ParseObject object, ParseException e) {
@@ -68,6 +74,7 @@ public class MainActivity extends ActionBarActivity {
                     setTimer(deal.getDate("dealEndTime"));
                     dealTitle.setText(object.getString("title"));
                     setUpBid();
+                 //   setUpInitialBids(deal);
                 } else {
                     // something went wrong
                 }
@@ -85,7 +92,16 @@ public class MainActivity extends ActionBarActivity {
                 if (e == null) {
                     Log.d("MainActivity/done", "Total Bidder " + bidList.size());
                     totalBidder.setText(""+bidList.size());
-                    topBidNumber.setText("$" + bidList.get(0).getInt("amount"));
+                    if (bidList.size()!=0) {
+                        currentBid = bidList.get(0).getInt("amount");
+                        topBidNumber.setText("$" + bidList.get(0).getInt("amount"));
+                        bidList.get(0).getParseObject("bid_by").fetchInBackground(new GetCallback<ParseObject>() {
+                            @Override
+                            public void done(ParseObject parseObject, ParseException e) {
+                                topBidUser.setText("" + parseObject.getString("userid"));
+                            }
+                        });
+                    }
 
                 } else {
                     Log.d("score", "Error: " + e.getMessage());
@@ -96,22 +112,44 @@ public class MainActivity extends ActionBarActivity {
     }
 
     private void setUpInitialBids(ParseObject deal){
+        if (currentUser == null)
+            return ;
+        Log.d("MainActivity/setUpInitialBids", currentUser.get("userid")+"");
         ParseObject bid = new ParseObject("Bid");
         bid.put("amount",100);
         bid.put("bidTime", new Date(Calendar.getInstance().getTimeInMillis()));
         bid.put("bid_for",deal);
+        bid.put("bid_by",currentUser);
 
         ParseObject bid2 = new ParseObject("Bid");
         bid2.put("amount",150);
         bid2.put("bidTime", new Date(Calendar.getInstance().getTimeInMillis()));
         bid2.put("bid_for",deal);
+        bid2.put("bid_by",currentUser);
+
+        bid.saveInBackground();
+        bid2.saveInBackground();
     }
 
     private void setBidButton(){
         final DialogInterface.OnClickListener positiveListener = new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
+                if (currentUser ==null){
+                    AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                    builder.setTitle(R.string.login_please_title)
+                            .setMessage(R.string.login_please_message)
+                            .setPositiveButton(R.string.bid_confirm_yes, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                                    startActivity(intent);
+                                }
+                            });
+                    builder.create().show();
+                }
+                else
+                    placeBid();
             }
         };
 
@@ -124,6 +162,22 @@ public class MainActivity extends ActionBarActivity {
                         .setPositiveButton(R.string.bid_confirm_yes, positiveListener)
                         .setNegativeButton(R.string.bid_confirm_no, null);
                 builder.create().show();
+            }
+        });
+    }
+
+    private void placeBid(){
+        int bidAmount = currentBid + 100;
+        ParseObject bid = new ParseObject("Bid");
+        bid.put("amount",bidAmount);
+        bid.put("bidTime", new Date(Calendar.getInstance().getTimeInMillis()));
+        bid.put("bid_for",deal);
+        bid.put("bid_by",currentUser);
+
+        bid.saveInBackground(new SaveCallback() {
+            @Override
+            public void done(ParseException e) {
+                setUpBid();
             }
         });
     }

@@ -25,7 +25,9 @@
         </activity>
         <activity android:name="com.bidex.app.MainActivity"
             android:windowSoftInputMode="stateHidden|adjustResize"
+            android:launchMode="singleTask"
             android:label="@string/app_name"/>
+
         <activity android:name="com.bidex.app.PaymentActivity"
             android:noHistory="true"
             android:label="@string/title_payment">
@@ -34,7 +36,6 @@
                 android:value="com.bidex.app.MainActivity" />
         </activity>
         <activity android:name="com.bidex.app.LoginActivity"
-            android:noHistory="true"
             android:label="@string/title_login">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
