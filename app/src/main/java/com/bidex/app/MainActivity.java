@@ -22,9 +22,9 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.SaveCallback;
 
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 public class MainActivity extends ActionBarActivity {
@@ -173,6 +173,7 @@ public class MainActivity extends ActionBarActivity {
         bid.put("bidTime", new Date(Calendar.getInstance().getTimeInMillis()));
         bid.put("bid_for",deal);
         bid.put("bid_by",currentUser);
+        commentListAdapter.addItem(new Comment(currentUser.getString("userid"), bidAmount, "I am bidding $" +bidAmount));
 
         bid.saveInBackground(new SaveCallback() {
             @Override
@@ -204,13 +205,14 @@ public class MainActivity extends ActionBarActivity {
         .start();
     }
 
-    private List<Comment> getSampleComments(){
-        ArrayList<Comment> list = new ArrayList<Comment>();
-        list.add(new Comment("bidder123",2300,"I am getting this deal"));
+    private LinkedList<Comment> getSampleComments(){
+        LinkedList<Comment> list = new LinkedList<Comment>();
+        list.add(new Comment("bidder123",0,"I am getting this deal"));
         list.add(new Comment("bidder4",0,"Hey this is cool"));
-        list.add(new Comment("bidder3",100,"Hello world"));
+        list.add(new Comment("bidder3",0,"Hello world"));
         list.add(new Comment("bidder2",0,"yeah this is quite awesome"));
-        list.add(new Comment("first1",50,"First"));
+        list.add(new Comment("first1",0,"First"));
+
         return list;
     }
 

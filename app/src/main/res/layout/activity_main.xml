@@ -16,6 +16,7 @@
             android:layout_height="150dp"
             android:id="@+id/bid_image"/>
         <TextView
+            android:layout_gravity="center"
             style="@style/DealTitle"
             android:id="@+id/deal_title"
             android:text="@string/deal_title"

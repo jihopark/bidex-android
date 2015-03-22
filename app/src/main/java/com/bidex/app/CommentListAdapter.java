@@ -6,18 +6,23 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
-import java.util.List;
+import java.util.LinkedList;
 
 /**
  * Created by parkjiho on 3/21/15.
  */
 public class CommentListAdapter extends BaseAdapter {
-    private List<Comment> comments;
+    private LinkedList<Comment> comments;
     private Context _context;
 
-    public CommentListAdapter(Context context, List<Comment> list){
+    public CommentListAdapter(Context context, LinkedList<Comment> list){
         comments = list;
         _context = context;
+    }
+
+    public void addItem(Comment comment){
+        comments.addFirst(comment);
+        notifyDataSetChanged();
     }
 
     public int getCount() {

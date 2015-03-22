@@ -12,7 +12,7 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_login">Login</string>
     <string name="action_settings">Settings</string>
-    <string name="deal_title">Sample Title That Turns out To be Really Long?</string>
+    <string name="deal_title">Loading Deals......</string>
     <string name="deal_description">Sample detail</string>
     <string name="top_bid_number">$-</string>
     <string name="top_bid_text">TOP BID</string>
